@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kasper Johansen"]
   s.date = %q{2012-08-31}
-  s.description = %q{TODO: longer description of your gem}
+  s.description = %q{A class for remembering window-settings using the gtk2-extension for Ruby.}
   s.email = %q{k@spernj.org}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "gtk2_window_settings.gemspec",
     "lib/gtk2_window_settings.rb",
     "spec/gtk2_window_settings_spec.rb",
     "spec/spec_helper.rb"
@@ -33,7 +34,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
-  s.summary = %q{TODO: one-line summary of your gem}
+  s.summary = %q{A class for remembering window-settings using the gtk2-extension for Ruby.}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
