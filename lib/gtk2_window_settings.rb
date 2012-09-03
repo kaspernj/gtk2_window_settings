@@ -53,18 +53,38 @@ class Gtk2_window_settings
     
     #Initialize events for the window.
     @window.signal_connect_after(:size_request, &self.method(:on_window_size_request))
-    @window.signal_connect("configure-event", &self.method(:on_window_moved))
+    @window.signal_connect(:configure_event, &self.method(:on_window_moved))
   end
   
   #Called when the window is resized. Writes the new size to the database.
   def on_window_size_request(*args)
-    size = @window.size
-    @db.update(:Gtk2_window_settings, {:width => size[0], :height => size[1]}, {:id => @id}) if size[0].to_i > 0 and size[1].to_i > 0
+    Gtk.timeout_remove(@size_request_timeout) if @size_request_timeout
+    
+    @size_request_timeout = Gtk.timeout_add(500) do
+      @size_request_timeout = nil
+      
+      if @window and !@window.destroyed?
+        size = @window.size
+        @db.update(:Gtk2_window_settings, {:width => size[0], :height => size[1]}, {:id => @id}) if size[0].to_i > 0 and size[1].to_i > 0
+      end
+      
+      false
+    end
   end
   
   #Called when the window is moved on the screen. Writes the new size to the database.
   def on_window_moved(*args)
-    pos = @window.position
-    @db.update(:Gtk2_window_settings, {:pos_x => pos[0], :pos_y => pos[1], :pos_registered => 1}, {:id => @id}) if pos[0].to_i >= 0 and pos[1].to_i >= 0
+    Gtk.timeout_remove(@moved_timeout) if @moved_timeout
+    
+    @moved_timeout = Gtk.timeout_add(500) do
+      @moved_timeout = nil
+      
+      if @window and !@window.destroyed?
+        pos = @window.position
+        @db.update(:Gtk2_window_settings, {:pos_x => pos[0], :pos_y => pos[1], :pos_registered => 1}, {:id => @id}) if pos[0].to_i >= 0 and pos[1].to_i >= 0
+      end
+      
+      false
+    end
   end
 end
