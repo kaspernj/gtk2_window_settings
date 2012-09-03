@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{gtk2_window_settings}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kasper Johansen"]
-  s.date = %q{2012-08-31}
+  s.date = %q{2012-09-03}
   s.description = %q{A class for remembering window-settings using the gtk2-extension for Ruby.}
   s.email = %q{k@spernj.org}
   s.extra_rdoc_files = [
