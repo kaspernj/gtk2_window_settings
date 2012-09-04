@@ -70,6 +70,9 @@ class Gtk2_window_settings
       
       false
     end
+    
+    #If false isnt returned the event might be canceled, which can lead to very buggy behaviour.
+    return false
   end
   
   #Called when the window is moved on the screen. Writes the new size to the database.
@@ -86,5 +89,8 @@ class Gtk2_window_settings
       
       false
     end
+    
+    #If false isnt returned the event might be canceled, which can lead to very buggy behaviour.
+    return false
   end
 end
