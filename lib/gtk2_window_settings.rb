@@ -48,7 +48,14 @@ class Gtk2_window_settings
     end
     
     #Resize and move window to saved size (if saved).
-    @window.resize(@data[:width].to_i, @data[:height].to_i) if @data[:width].to_i > 0 and @data[:height].to_i > 0
+    if @data[:width].to_i > 0 and @data[:height].to_i > 0
+      #Use timeout to avoid any other size-code.
+      Gtk.timeout_add(25) do
+        @window.resize(@data[:width].to_i, @data[:height].to_i)
+        false
+      end
+    end
+    
     @window.move(@data[:pos_x].to_i, @data[:pos_y].to_i) if @data[:pos_registered].to_i == 1
     
     #Initialize events for the window.
