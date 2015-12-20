@@ -1,26 +1,38 @@
+GIT
+  remote: git://github.com/kaspernj/best_practice_project.git
+  revision: 63faed5527c52b4e0196fcca726df25dc31e0341
+  specs:
+    best_practice_project (0.0.5)
+      psych (~> 2.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
-    datet (0.0.22)
+    array_enumerator (0.0.10)
+    ast (2.1.0)
+    astrolabe (1.3.1)
+      parser (~> 2.2)
+    baza (0.0.19)
+      array_enumerator (~> 0.0.10)
+      datet (~> 0.0.25)
+      event_handler (~> 0.0.0)
+      string-cases (~> 0.0.1)
+      wref (~> 0.0.8)
+    datet (0.0.25)
     diff-lcs (1.1.3)
+    event_handler (0.0.0)
     git (1.2.5)
-    http2 (0.0.13)
     jeweler (1.8.4)
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
       rdoc
     json (1.7.7)
-    knjrbfw (0.0.103)
-      datet
-      http2
-      php4r
-      ruby_process
-      tsafe
-      wref
-    php4r (0.0.3)
-      datet
-      http2
+    parser (2.2.3.0)
+      ast (>= 1.1, < 3.0)
+    powerpack (0.1.1)
+    psych (2.0.16)
+    rainbow (2.0.0)
     rake (10.0.3)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -32,18 +44,29 @@ GEM
     rspec-expectations (2.8.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.8.0)
-    ruby_process (0.0.8)
-      tsafe
-      wref
-    tsafe (0.0.11)
-    wref (0.0.5)
+    rubocop (0.35.1)
+      astrolabe (~> 1.3)
+      parser (>= 2.2.3.0, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      tins (<= 1.6.0)
+    ruby-progressbar (1.7.5)
+    string-cases (0.0.1)
+    tins (1.6.0)
+    wref (0.0.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  baza (~> 0.0.19)
+  best_practice_project!
   bundler (>= 1.0.0)
   jeweler (~> 1.8.4)
-  knjrbfw
   rdoc (~> 3.12)
   rspec (~> 2.8.0)
+  rubocop (= 0.35.1)
+
+BUNDLED WITH
+   1.10.6
